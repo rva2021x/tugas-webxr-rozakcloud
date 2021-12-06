@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <title>testing aframe</title>
+</head>
+<body>
+    <a-scene>
+        <!-- <a-assets>
+            <a-cubemap id="sky">
+                <img src="textures/posx.bmp">
+                <img src="textures/negx.bmp">
+                <img src="textures/posy.bmp">
+                <img src="textures/negy.bmp">
+                <img src="textures/negz.bmp">
+                <img src="textures/posz.bmp">
+            </a-cubemap>
+        </a-assets> -->
+        <a-asset>
+            <img src="textures/grass01.jpg" id="base">
+            <img src="textures/grass01_n.jpg" id="normal">
+            <img src="textures/grass01_h.jpg" id="height">
+            <img id="sky" src="textures/934043.jpg">
+            
+        </a-asset>
+        <!-- <a-entity cubemap="folder: /cubemap"></a-entity> -->
+        <!-- <a-entity light="type: point; color: white"></a-entity> -->
+        <!-- <a-box color="#444444" position="0 1.5 -5" height="5" width="15" depth="0.2"></a-box> -->
+        <!-- <a-box 
+        src="#base"
+        normal-map="#normal"
+        
+        position="0 -1 -1" 
+        height="0.2" 
+        width="15" 
+        depth="10"
+        ></a-box> -->
+        <a-plane 
+        src="#base" 
+        height="100" 
+        normal-map="#normal"
+        normal-texture-repeat="50 50"
+        width="100" 
+        repeat="50 50"
+        rotation="-90 0 0"></a-plane>
+        <!-- <a-entity geometry="primitive: box" material="src: #base"></a-entity> -->
+        <a-box
+            src="#base"
+            color=white
+            normal-map="#normal"
+            position="-1 1.5 -2"
+        ></a-box>
+        <!-- <a-box color="#222222" position="-5 1.5 -1" height="5" width="0.2" depth="10"></a-box> -->
+
+        <a-sphere
+            color="yellow"
+            radius="0.5"
+            position="0 1.5 -3"
+        ></a-sphere>
+        <a-sky src="#sky"></a-sky>
+        <!-- <a-entity geometry="primitive: box" material="envMap: #sky; roughness: 0"></a-entity> -->
+    </a-scene>
+    
+</body>
+</html>
