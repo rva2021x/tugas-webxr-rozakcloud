@@ -34,6 +34,9 @@
             <img src="textures/Wood_plancks_004/Wood_Barrel_Top_001_basecolor.jpg" id="wood_b">
             <img src="textures/Wood_plancks_004/Wood_Barrel_Top_001_normal.jpg" id="wood_n">
             <img src="textures/Wood_plancks_004/Wood_Barrel_Top_001_height.png" id="wood_h">
+            <img src="textures/Wood_plancks_004/Wood_plancks_004_COLOR.jpg" id="wood1_b">
+            <img src="textures/Wood_plancks_004/Wood_plancks_004_NRM.jpg" id="wood1_n">
+            <img src="textures/Wood_plancks_004/Wood_plancks_004_DISP.jpg" id="wood1_h">
         </a-asset>
         <!-- <a-entity cubemap="folder: /cubemap"></a-entity> -->
         <!-- <a-entity light="type: point; color: white"></a-entity> -->
@@ -50,6 +53,8 @@
         
         <!-- displacement-map="#height"
         displacement-texture-repeat="50 50" -->
+        <a-sky src="#sky"></a-sky>
+        <!-- Ground Grass -->
         <a-plane 
             src="#base" 
             repeat="50 50"
@@ -60,6 +65,7 @@
             rotation="-90 0 0"
         ></a-plane>
         <!-- <a-entity geometry="primitive: box" material="src: #base"></a-entity> -->
+        <!-- Table for Guns -->
         <a-box
             src="#wood_b"
             repeat="3 1"
@@ -67,7 +73,8 @@
             normal-texture-repeat="3 1"
             width="3"
             height="0.1"
-            position="0 1 -2"
+            depth="0.7"
+            position="0 1 -1.7"
         ></a-box>
         <a-box
             src="#wood_b"
@@ -77,7 +84,7 @@
             width="0.1"
             height="1"
             depth="0.1"
-            position="-1.4 0.5 -1.6"
+            position="-1.4 0.5 -1.45"
         ></a-box>
         <a-box
             src="#wood_b"
@@ -87,7 +94,7 @@
             width="0.1"
             height="1"
             depth="0.1"
-            position="-1.4 0.5 -2.4"
+            position="-1.4 0.5 -1.95"
         ></a-box>
         <a-box
             src="#wood_b"
@@ -97,7 +104,7 @@
             width="0.1"
             height="1"
             depth="0.1"
-            position="1.4 0.5 -1.6"
+            position="1.4 0.5 -1.45"
         ></a-box>
         <a-box
             src="#wood_b"
@@ -107,8 +114,103 @@
             width="0.1"
             height="1"
             depth="0.1"
-            position="1.4 0.5 -2.4"
+            position="1.4 0.5 -1.95"
         ></a-box>
+        <!-- Carnival Shooting Range -->
+        <a-box
+            src="#wood1_b"
+            repeat="3 1"
+            normal-map="#wood1_n"
+            normal-texture-repeat="1 1"
+            width="3"
+            height="2"
+            position="0 0 -3"
+        ></a-box>
+        <a-box
+            color=brown
+            width="0.1"
+            height="1.5"
+            depth="1"
+            position="-1.45 1.75 -3"
+        ></a-box>
+        <a-box
+            color=brown
+            width="0.1"
+            height="1.5"
+            depth="1"
+            position="1.45 1.75 -3"
+        ></a-box>
+        <a-box
+            color=brown
+            width="0.1"
+            height="2.5"
+            depth="1"
+            position="-1.45 1.25 -4"
+        ></a-box>
+        <a-box
+            color=brown
+            width="0.1"
+            height="2.5"
+            depth="1"
+            position="1.45 1.25 -4"
+        ></a-box>
+        <a-box
+            color=brown
+            width="0.1"
+            height="2.5"
+            depth="1"
+            position="1.45 1.25 -4"
+        ></a-box>
+        <a-box
+            color=brown
+            width="3"
+            height="2.5"
+            depth="0.01"
+            position="0 1.25 -4.5"
+        ></a-box>
+        <a-box
+            color=brown
+            width="3"
+            height="0.01"
+            depth="2"
+            position="0 2.5 -3.5"
+        ></a-box>
+        <!-- upper tent -->
+        <a-triangle 
+            position="0 2.855 -2.85"
+            color=brown
+            vertex-a="0 1 0"
+            vertex-b="-1.5 -0.5 0"
+            vertex-c="1.5 -0.5 0"
+            rotation="-45 0 0"
+        ></a-triangle>
+        <a-triangle 
+            position="-1.08 2.8 -3.5"
+            depth="0.1"
+            color=brown
+            vertex-a="0 1.24 0"
+            vertex-b="-1 -0.5 0"
+            vertex-c="1 -0.5 0"
+            rotation="-54.5 270 0"
+        ></a-triangle>
+        <a-triangle 
+            position="1.08 2.8 -3.5"
+            depth="0.1"
+            color=brown
+            vertex-a="0 1.24 0"
+            vertex-b="-1 -0.5 0"
+            vertex-c="1 -0.5 0"
+            rotation="-54.5 90 0"
+        ></a-triangle>
+        <a-triangle 
+            position="0 2.855 -4.15"
+            color=brown
+            vertex-a="0 1 0"
+            vertex-b="-1.5 -0.5 0"
+            vertex-c="1.5 -0.5 0"
+            rotation="-45 180 0"
+        ></a-triangle>
+        
 
         <!-- <a-box color="#222222" position="-5 1.5 -1" height="5" width="0.2" depth="10"></a-box> -->
 
@@ -117,7 +219,7 @@
             radius="0.5"
             position="0 1.5 -3"
         ></a-sphere> -->
-        <a-sky src="#sky"></a-sky>
+        
         <!-- <a-entity geometry="primitive: box" material="envMap: #sky; roughness: 0"></a-entity> -->
     </a-scene>
     
