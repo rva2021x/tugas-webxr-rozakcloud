@@ -31,7 +31,9 @@
             <img src="textures/Grass_001_SD/Grass_001_NORM.jpg" id="normal">
             <img src="textures/Grass_001_SD/Grass_001_DISP.png" id="height">
             <img id="sky" src="textures/approaching_storm_4k2.png">
-            
+            <img src="textures/Wood_plancks_004/Wood_Barrel_Top_001_basecolor.jpg" id="wood_b">
+            <img src="textures/Wood_plancks_004/Wood_Barrel_Top_001_normal.jpg" id="wood_n">
+            <img src="textures/Wood_plancks_004/Wood_Barrel_Top_001_height.png" id="wood_h">
         </a-asset>
         <!-- <a-entity cubemap="folder: /cubemap"></a-entity> -->
         <!-- <a-entity light="type: point; color: white"></a-entity> -->
@@ -45,28 +47,76 @@
         width="15" 
         depth="10"
         ></a-box> -->
+        
+        <!-- displacement-map="#height"
+        displacement-texture-repeat="50 50" -->
         <a-plane 
-        src="#base" 
-        height="100" 
-        normal-map="#normal"
-        normal-texture-repeat="50 50"
-        width="100" 
-        repeat="50 50"
-        rotation="-90 0 0"></a-plane>
+            src="#base" 
+            repeat="50 50"
+            height="100" 
+            normal-map="#normal"
+            normal-texture-repeat="50 50"
+            width="100" 
+            rotation="-90 0 0"
+        ></a-plane>
         <!-- <a-entity geometry="primitive: box" material="src: #base"></a-entity> -->
         <a-box
-            src="#base"
-            color=white
-            normal-map="#normal"
-            position="-1 1.5 -2"
+            src="#wood_b"
+            repeat="3 1"
+            normal-map="#wood_n"
+            normal-texture-repeat="3 1"
+            width="3"
+            height="0.1"
+            position="0 1 -2"
         ></a-box>
+        <a-box
+            src="#wood_b"
+            repeat="0.1 1"
+            normal-map="#wood_n"
+            normal-texture-repeat="0.1 1"
+            width="0.1"
+            height="1"
+            depth="0.1"
+            position="-1.4 0.5 -1.6"
+        ></a-box>
+        <a-box
+            src="#wood_b"
+            repeat="0.1 1"
+            normal-map="#wood_n"
+            normal-texture-repeat="0.1 1"
+            width="0.1"
+            height="1"
+            depth="0.1"
+            position="-1.4 0.5 -2.4"
+        ></a-box>
+        <a-box
+            src="#wood_b"
+            repeat="0.1 1"
+            normal-map="#wood_n"
+            normal-texture-repeat="0.1 1"
+            width="0.1"
+            height="1"
+            depth="0.1"
+            position="1.4 0.5 -1.6"
+        ></a-box>
+        <a-box
+            src="#wood_b"
+            repeat="0.1 1"
+            normal-map="#wood_n"
+            normal-texture-repeat="0.1 1"
+            width="0.1"
+            height="1"
+            depth="0.1"
+            position="1.4 0.5 -2.4"
+        ></a-box>
+
         <!-- <a-box color="#222222" position="-5 1.5 -1" height="5" width="0.2" depth="10"></a-box> -->
 
-        <a-sphere
+        <!-- <a-sphere
             color="yellow"
             radius="0.5"
             position="0 1.5 -3"
-        ></a-sphere>
+        ></a-sphere> -->
         <a-sky src="#sky"></a-sky>
         <!-- <a-entity geometry="primitive: box" material="envMap: #sky; roughness: 0"></a-entity> -->
     </a-scene>
