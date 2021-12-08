@@ -9,23 +9,6 @@
 </head>
 <body>
     <a-scene>
-        <!-- <a-assets>
-            <a-cubemap id="sky">
-                <img src="textures/posx.bmp">
-                <img src="textures/negx.bmp">
-                <img src="textures/posy.bmp">
-                <img src="textures/negy.bmp">
-                <img src="textures/negz.bmp">
-                <img src="textures/posz.bmp">
-            </a-cubemap>
-        </a-assets> -->
-        <!-- <a-asset>
-            <img src="textures/grass01.jpg" id="base">
-            <img src="textures/grass01_n.jpg" id="normal">
-            <img src="textures/grass01_h.jpg" id="height">
-            <img id="sky" src="textures/approaching_storm_4k2.png">
-            
-        </a-asset> -->
         <a-asset>
             <img src="textures/Grass_001_SD/Grass_001_COLOR.jpg" id="base">
             <img src="textures/Grass_001_SD/Grass_001_NORM.jpg" id="normal">
@@ -37,30 +20,30 @@
             <img src="textures/Wood_plancks_004/Wood_plancks_004_COLOR.jpg" id="wood1_b">
             <img src="textures/Wood_plancks_004/Wood_plancks_004_NRM.jpg" id="wood1_n">
             <img src="textures/Wood_plancks_004/Wood_plancks_004_DISP.jpg" id="wood1_h">
+            <img src="textures/logo.png" id="logo">
             <a-asset-item src="assets/target/scene.gltf" id="target"></a-asset-item>
             <a-asset-item src="assets/duck_sg/scene.gltf" id="duck"></a-asset-item>
 
-            <a-asset-item src="assets/teddy_bear/scene.gltf" id="teddy"></a-asset-item>
+            <a-asset-item src="assets/teddy/scene.gltf" id="teddy"></a-asset-item>
             <a-asset-item src="assets/pistol/scene.gltf" id="pistol"></a-asset-item>
             <a-asset-item src="assets/pistol/textures/pistol_baseColor.png" id="pistol_n"></a-asset-item>
         </a-asset>
-        <!-- <a-entity cubemap="folder: /cubemap"></a-entity> -->
-        <!-- <a-entity light="type: point; color: white"></a-entity> -->
-        <!-- <a-box color="#444444" position="0 1.5 -5" height="5" width="15" depth="0.2"></a-box> -->
-        <!-- <a-box 
-        src="#base"
-        normal-map="#normal"
-        
-        position="0 -1 -1" 
-        height="0.2" 
-        width="15" 
-        depth="10"
-        ></a-box> -->
-        
-        <!-- displacement-map="#height"
-        displacement-texture-repeat="50 50" -->
         <a-sky src="#sky"></a-sky>
-        <a-entity cursor="rayOrigin:mouse"></a-entity>
+        <!-- controller -->
+        <a-entity movement-controls="fly: true" position="0 0 0">
+            <a-entity camera position="0 1.6 0" look-controls></a-entity>
+            <a-entity cursor="rayOrigin:mouse"></a-entity>
+            <a-entity laser-controls="hand: right"></a-entity>
+          </a-entity>
+        <!-- gun in hand -->
+          <!-- <a-entity id="weapon" position="0 0 0">
+            <a-entity id="camera" camera look-controls="pointerLockEnabled: false;">
+              <a-gltf-model src="#pistol"
+                rotation="0 -173 0"
+                position="0.2 1.4 -0.25"
+                scale="0.009 0.009 0.009"></a-gltf-model>
+            </a-entity>
+          </a-entity> -->
         <!-- Ground Grass -->
         <a-plane 
             src="#base" 
@@ -71,58 +54,6 @@
             width="100" 
             rotation="-90 0 0"
         ></a-plane>
-        <!-- <a-entity geometry="primitive: box" material="src: #base"></a-entity> -->
-        <!-- Table for Guns -->
-        <!-- <a-box
-            src="#wood_b"
-            repeat="3 1"
-            normal-map="#wood_n"
-            normal-texture-repeat="3 1"
-            width="3"
-            height="0.1"
-            depth="0.7"
-            position="0 1 -1.7"
-        ></a-box>
-        <a-box
-            src="#wood_b"
-            repeat="0.1 1"
-            normal-map="#wood_n"
-            normal-texture-repeat="0.1 1"
-            width="0.1"
-            height="1"
-            depth="0.1"
-            position="-1.4 0.5 -1.45"
-        ></a-box>
-        <a-box
-            src="#wood_b"
-            repeat="0.1 1"
-            normal-map="#wood_n"
-            normal-texture-repeat="0.1 1"
-            width="0.1"
-            height="1"
-            depth="0.1"
-            position="-1.4 0.5 -1.95"
-        ></a-box>
-        <a-box
-            src="#wood_b"
-            repeat="0.1 1"
-            normal-map="#wood_n"
-            normal-texture-repeat="0.1 1"
-            width="0.1"
-            height="1"
-            depth="0.1"
-            position="1.4 0.5 -1.45"
-        ></a-box>
-        <a-box
-            src="#wood_b"
-            repeat="0.1 1"
-            normal-map="#wood_n"
-            normal-texture-repeat="0.1 1"
-            width="0.1"
-            height="1"
-            depth="0.1"
-            position="1.4 0.5 -1.95"
-        ></a-box> -->
         <!-- Carnival Shooting Range -->
         <a-box
             src="#wood1_b"
@@ -150,10 +81,16 @@
             normal-map="#wood1_n"
             normal-texture-repeat="1 1"
             width="4"
-            height="2w"
+            height="2"
             depth="0.2"
             position="0 0.17 -4.05"
         ></a-box>
+        <a-plane
+            src="#logo"
+            width="2"
+            height="1"
+            position="0 0.5 -1.499"
+        ></a-plane>
         <a-box
             color=brown
             width="0.1"
@@ -168,27 +105,6 @@
             depth="4.5"
             position="2.5 1.5 -3.75"
         ></a-box>
-        <!-- <a-box
-            color=brown
-            width="0.1"
-            height="3.5"
-            depth="2"
-            position="-2.5 1.5 -3.5"
-        ></a-box> -->
-        <!-- <a-box
-            color=brown
-            width="0.1"
-            height="2.5"
-            depth="2"
-            position="2.5 1.a5 -3"
-        ></a-box> -->
-        <!-- <a-box
-            color=brown
-            width="0.1"
-            height="2.5"
-            depth="1"
-            position="-2.2 1.25 -3"
-        ></a-box> -->
         <a-box
             color=brown
             width="4.9"
@@ -340,6 +256,7 @@
                 src:sound/gunshot.mp3;
                 on: click;
                 poolSize: 10;
+                position: 0 1.3 -0.5;
             "
             animation="
                 property: position;
@@ -389,6 +306,7 @@
                 src:sound/gunshot.mp3;
                 on: click;
                 poolSize: 10;
+                position: 0 1.3 -0.5;
             "
             animation="
                 property: position;
@@ -438,6 +356,7 @@
                 src:sound/gunshot.mp3;
                 on: click;
                 poolSize: 10;
+                position: 0 1.3 -0.5;
             "
             animation="
                 property: position;
@@ -487,6 +406,7 @@
                 src:sound/gunshot.mp3;
                 on: click;
                 poolSize: 10;
+                position: 0 1.3 -0.5;
             "
             animation="
                 property: position;
@@ -536,6 +456,7 @@
                 src:sound/gunshot.mp3;
                 on: click;
                 poolSize: 10;
+                position: 0 1.3 -0.5;
             "
             animation="
                 property: position;
@@ -585,6 +506,7 @@
                 src:sound/gunshot.mp3;
                 on: click;
                 poolSize: 10;
+                position: 0 1.3 -0.5;
             "
             animation="
                 property: position;
@@ -634,6 +556,7 @@
                 src:sound/gunshot.mp3;
                 on: click;
                 poolSize: 10;
+                position: 0 1.3 -0.5;
             "
             animation="
                 property: position;
@@ -683,6 +606,7 @@
                 src:sound/gunshot.mp3;
                 on: click;
                 poolSize: 10;
+                position: 0 1.3 -0.5;
             "
             animation="
                 property: position;
@@ -751,6 +675,7 @@
                 src:sound/gunshot.mp3;
                 on: click;
                 poolSize: 10;
+                position: 0 1.3 -0.5;
             "
             animation="
                 property: position;
@@ -813,17 +738,18 @@
         <a-gltf-model 
             src="#target"
             scale="0.35 0.35 0.35"
-            position="-1.1 1.3 -4.05"
+            position="-1.1 1.3 -4.25"
             rotation="0 90 180"
             sound="
                 src:sound/gunshot.mp3;
                 on: click;
                 poolSize: 10;
+                position: 0 1.3 -0.5;
             "
             animation="
                 property: position;
-                from: 0 1.3 -4.05;
-                to: 1.7 1.3 -4.05;
+                from: 0 1.3 -4.25;
+                to: 1.7 1.3 -4.25;
                 dur: 1500;
                 loop: true;
                 dir: alternate;
@@ -831,8 +757,8 @@
             "
             animation__loop="
                 property: position;
-                from: 1.7 1.3 -4.05;
-                to: -1.7 1.3 -4.05;
+                from: 1.7 1.3 -4.25;
+                to: -1.7 1.3 -4.25;
                 dur: 2200;
                 loop: true;
                 dir: alternate;
@@ -840,7 +766,7 @@
             "
             animation__pos="
                 property: position;
-                to: 0 1.2 -4.2;
+                to: 0 1 -4.4;
                 dur: 1000;
                 easing: easeInOutExpo;
                 startEvents: click;
@@ -856,8 +782,8 @@
             "
             animation__2="
                 property: position;
-                from: 0 1.2 -4.2;
-                to: 0 1.3 -4.05;
+                from: 0 1 -4.4;
+                to: 0 1.3 -4.25;
                 delay: 5000;
                 dur: 1000;
                 easing: easeOutExpo;
@@ -876,8 +802,8 @@
             "
             animation__3a="
                 property: position;
-                from: 0 1.3 -4.05;
-                to: 1.7 1.3 -4.05;
+                from: 0 1.3 -4.25;
+                to: 1.7 1.3 -4.25;
                 delay: 6000;
                 dur: 1100;
                 dir: alternate;
@@ -886,8 +812,8 @@
             "
             animation__3="
                 property: position;
-                from: 1.7 1.3 -4.05;
-                to: -1.7 1.3 -4.05;
+                from: 1.7 1.3 -4.25;
+                to: -1.7 1.3 -4.25;
                 delay: 7100;
                 dur: 2200;
                 loop: true;
@@ -905,6 +831,7 @@
                 src:sound/gunshot.mp3;
                 on: click;
                 poolSize: 10;
+                position: 0 1.3 -0.5;
             "
             animation="
                 property: position;
@@ -926,7 +853,7 @@
             "
             animation__pos="
                 property: position;
-                to: 0 1.2 -4.2;
+                to: 0 1 -4.2;
                 dur: 1000;
                 easing: easeInOutExpo;
                 startEvents: click;
@@ -942,7 +869,7 @@
             "
             animation__2="
                 property: position;
-                from: 0 1.2 -4.2;
+                from: 0 1 -4.2;
                 to: 0 1.3 -4.05;
                 delay: 6000;
                 dur: 1000;
@@ -982,53 +909,6 @@
                 easing: easeInOutQuad;
             "
         ></a-gltf-model>
-        <!-- animation="
-                property: position;
-                from: -1.1 1.5 -4.65;
-                to: -1.1 3 -5;
-                dur: 500;
-                dir: alternate;
-                easing: easeOutExpo;
-                startEvents: click;
-            " -->
-        <!-- <a-gltf-model 
-            src="#target"
-            scale="0.35 0.35 0.35"
-            position="-1.5 3 -4.5"
-            rotation="0 90 90"
-        ></a-gltf-model> -->
-        <!-- animation="
-                property: rotation;
-                to: 0 90 90;
-                dur: 3000;
-                loop: true;
-                dir: alternate;
-                easing: easeInOutQuad;
-            " -->
-        <!-- <a-gltf-model 
-            src="#target"
-            scale="0.125 0.125 0.125"
-            position="-0.325 2.1 -4.15"
-        ></a-gltf-model>
-        <a-gltf-model 
-            src="#target"
-            scale="0.125 0.125 0.125"
-            position="0.325 2.1 -4.15"
-        ></a-gltf-model>
-        <a-gltf-model 
-            src="#target"
-            scale="0.125 0.125 0.125"
-            position="1 2.1 -4.15"
-        ></a-gltf-model> -->
-        <!-- <a-cylinder 
-            color="#873e23" 
-            scale="0.03 0.03 0.03"
-            width="0.1"
-            height="170"
-            position="0 2.5 -4.4"
-            rotation="90 0 90"
-            segments-radial="20"
-        ></a-cylinder> -->
         <!-- Decs -->
         <a-gltf-model 
             src="#duck"
@@ -1065,19 +945,19 @@
         ></a-gltf-model>
         <a-gltf-model 
             src="#teddy"
-            scale="0.015 0.015 0.015"
+            scale="0.09 0.09 0.09"
             position="0.99 1.01 -2.05"
             rotation="0 -30 0"
         ></a-gltf-model>
         <a-gltf-model 
             src="#teddy"
-            scale="0.015 0.015 0.015"
+            scale="0.09 0.09 0.09"
             position="1.09 1.01 -1.85"
             rotation="0 -35s 0"
         ></a-gltf-model>
         <a-gltf-model 
             src="#teddy"
-            scale="0.015 0.015 0.015"
+            scale="0.09 0.09 0.09"
             position="1.19 1.01 -1.65"
             rotation="0 -40 0"
         ></a-gltf-model>
@@ -1088,16 +968,6 @@
             rotation="0 235 90"
         ></a-gltf-model>
         
-
-        <!-- <a-box color="#222222" position="-5 1.5 -1" height="5" width="0.2" depth="10"></a-box> -->
-
-        <!-- <a-sphere
-            color="yellow"
-            radius="0.5"
-            position="0 1.5 -3"
-        ></a-sphere> -->
-        
-        <!-- <a-entity geometry="primitive: box" material="envMap: #sky; roughness: 0"></a-entity> -->
     </a-scene>
     
 </body>
